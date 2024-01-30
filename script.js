@@ -78,6 +78,7 @@ fetch(queryURL)
 });
 }
 
+//pushing in the searched city to the list of cities
 $("#search-button").on("click", function(event) {
   $("#search-input").empty();
   event.preventDefault();
