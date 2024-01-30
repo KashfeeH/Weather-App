@@ -58,18 +58,13 @@ fetch(queryURL)
     var time = data.list[i].dt_txt;
     if (time.includes("15:00:00")) {
       var colSm = $("<div>").addClass("col-sm-2 bg-forecast text-light forecastList");
-      var weatherImg = $("<img>").attr(
-        "src",
-        "https://openweathermap.org/img/wn/" +
-          data.list[i].weather[0].icon +
-          "@2x.png"
-      );
-      var tempF = data.list[i].main.temp;
+      var image = $("<img>").attr("src","https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + "@2x.png");
+      var temp = data.list[i].main.temp;
       var newDate = dayjs.unix(data.list[i].dt).format("DD/MM/YYYY");
       colSm.append("<h5 class ='text-center header'>"+ newDate + "</h5>");
-      colSm.append(weatherImg);
+      colSm.append(image);
       colSm.append(
-        $("<p>").text("Temperature: " + tempF.toFixed(2)+ " C")
+        $("<p>").text("Temperature: " + temp.toFixed(2)+ " C")
       );
       colSm.append(
         $("<p>").text("Wind Speed: " + data.list[i].wind.speed + " KPH") 
